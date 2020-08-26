@@ -1,0 +1,17 @@
+astroid
+blinker
+click
+Flask
+Flask-Mail
+gunicorn
+isort
+itsdangerous
+Jinja2
+lazy-object-proxy
+MarkupSafe
+mccabe
+pylint
+six
+toml
+Werkzeug
+wrapt
