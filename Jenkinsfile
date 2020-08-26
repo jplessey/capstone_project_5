@@ -1,10 +1,10 @@
 pipeline {
-  agent any 
-  stages {
-    stage('Build') {
-      steps {
-        sh 'echo “J&P Guitars App...”'
-      }
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo "Hello World"'
+            }
+        }
     }
-  }
 }
