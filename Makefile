@@ -26,7 +26,7 @@ lint:
 	hadolint --ignore DL3013 Dockerfile
 	# This is a linter for Python source code linter: https://www.pylint.org/
 	# This should be run from inside a virtualenv
-	pylint --disable=R,C,W1203 app.py
+	pylint --disable=R,C,W1203 *.py
     # This is linter for HTML
 	tidy -q -e templates/*.html
 
