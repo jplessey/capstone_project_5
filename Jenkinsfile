@@ -20,6 +20,11 @@ pipeline {
             }
         }
         stage('Lint Dockerfile') {
+            agent {
+                docker {
+                    image 'hadolint/hadolint:latest-debian'
+                }
+            }            
             steps {
                 sh 'hadolint --ignore DL3013 Dockerfile'
             }
