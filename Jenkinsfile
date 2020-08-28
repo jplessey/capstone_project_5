@@ -19,17 +19,9 @@ pipeline {
                 sh 'tidy -q -e templates/*.html'
             }
         }
-        // stage('Lint Dockerfile') {
-        //     steps {
-        //         sh 'wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.18.0/hadolint-Linux-x86_64'
-        //         sh 'chmod +x /bin/hadolint'
-        //         sh 'hadolint --ignore DL3013 Dockerfile'
-        //     }
-        // }
         stage('Lint Dockerfile') {
             agent {
                 docker {
-                    alwaysPull false
                     image 'hadolint/hadolint:latest'
                 }
             }            
