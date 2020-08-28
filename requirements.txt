@@ -3,7 +3,6 @@ blinker
 click
 Flask
 Flask-Mail
-gunicorn
 isort
 itsdangerous
 Jinja2
