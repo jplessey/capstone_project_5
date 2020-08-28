@@ -28,10 +28,11 @@ pipeline {
                     alwaysPull false
                     image 'hadolint/hadolint:latest'
                 }
+            }
             steps {
                 sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
             }
-        }          
+        }
         // stage('Lint Dockerfile') {
         //     agent {
         //         docker {
