@@ -2,11 +2,13 @@ pipeline {
     agent none
     stages {
         stage('Build') {
+            agent { any }
             steps {
                 sh 'echo "Building JP Guitars WebApp..."'
             }
         }
         stage('Lint Python files') {
+            agent { any }
             steps {
                 withPythonEnv('python3.8') {
                     sh 'pip install -r requirements.txt'
@@ -15,6 +17,7 @@ pipeline {
             }
         }
         stage('Lint HTML files') {
+            agent { any }
             steps {
                 sh 'tidy -q -e templates/*.html'
             }
