@@ -1,14 +1,12 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build') {
-            agent any
             steps {
                 sh 'echo "Building JP Guitars WebApp..."'
             }
         }
         stage('Lint Python files') {
-            agent any
             steps {
                 withPythonEnv('python3.8') {
                     sh 'pip install -r requirements.txt'
@@ -17,20 +15,15 @@ pipeline {
             }
         }
         stage('Lint HTML files') {
-            agent any
             steps {
                 sh 'tidy -q -e templates/*.html'
             }
         }
         stage('Lint Dockerfile') {
-            agent {
-                docker {
-                    alwaysPull false
-                    image 'hadolint/hadolint:latest'
-                }
-            }
             steps {
-                sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
+                sh 'wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.18.0/hadolint-Linux-x86_64'
+                sh 'chmod +x /bin/hadolint'
+                sh 'hadolint --ignore DL3013 Dockerfile'
             }
         }
         // stage('Lint Dockerfile') {
