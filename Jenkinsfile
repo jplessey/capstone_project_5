@@ -13,7 +13,17 @@ pipeline {
                     sh 'pylint --disable=R,C,W1203 *.py'
                 }
             }
-        }         
+        }
+        stage('Lint HTML files') {
+            steps {
+                sh 'tidy -q -e templates/*.html'
+            }
+        }
+        stage('Lint Dockerfile') {
+            steps {
+                sh 'hadolint --ignore DL3013 Dockerfile'
+            }
+        }                          
         // stage('Build Docker Image - test') {
         //     steps {
         //         sh 'docker build -t jpguitars_app .'
