@@ -22,6 +22,7 @@ pipeline {
         stage('Lint Dockerfile') {
             agent {
                 docker {
+                    alwaysPull false
                     image 'hadolint/hadolint:latest-debian'
                 }
             }            
