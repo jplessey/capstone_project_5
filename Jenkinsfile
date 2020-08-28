@@ -23,16 +23,22 @@ pipeline {
             }
         }
         stage('Lint Dockerfile') {
-            agent {
-                docker {
-                    alwaysPull false
-                    image 'hadolint/hadolint:latest-debian'
-                }
-            }            
+            agent any
             steps {
-                sh 'hadolint --ignore DL3013 Dockerfile'
+                sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
             }
-        }                          
+        }          
+        // stage('Lint Dockerfile') {
+        //     agent {
+        //         docker {
+        //             alwaysPull false
+        //             image 'hadolint/hadolint:latest-debian'
+        //         }
+        //     }            
+        //     steps {
+        //         sh 'hadolint --ignore DL3013 Dockerfile'
+        //     }
+        // }                          
         // stage('Build Docker Image - test') {
         //     steps {
         //         sh 'docker build -t jpguitars_app .'
