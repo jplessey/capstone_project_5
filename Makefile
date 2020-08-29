@@ -14,6 +14,8 @@ install:
 	# This should be run from inside a virtualenv
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
+	npm install --save-dev stylelint stylelint-config-standard
+	npm install eslint --save-dev
 
 test:
 	# Additional, optional, tests could go here
@@ -29,5 +31,7 @@ lint:
 	pylint --disable=R,C,W1203 *.py
     # This is linter for HTML
 	tidy -q -e templates/*.html
+	npx stylelint "static/main.css"
+	npx eslint "static/main.js"
 
 all: install lint test
