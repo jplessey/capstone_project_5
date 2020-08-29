@@ -19,6 +19,12 @@ pipeline {
                 sh 'tidy -q -e templates/*.html'
             }
         }
+        stage('Lint CSS file') {
+            steps {
+                sh 'npm install --save-dev stylelint stylelint-config-standard'
+                sh 'npx stylelint "static/main.css"'
+            }
+        }         
         stage('Lint Dockerfile') {
             agent {
                 docker {
@@ -28,13 +34,7 @@ pipeline {
             steps {
                 sh 'hadolint --ignore DL3013 Dockerfile'
             }
-        }
-        stage('Lint CSS files') {
-            steps {
-                sh 'npm install --save-dev stylelint stylelint-config-standard'
-                sh 'npx stylelint "static/main.css"'
-            }
-        }                          
+        }                         
         // stage('Build Docker Image - test') {
         //     steps {
         //         sh 'docker build -t jpguitars_app .'
