@@ -28,6 +28,11 @@ pipeline {
             steps {
                 sh 'hadolint --ignore DL3013 Dockerfile'
             }
+        }
+        stage('Lint CSS files') {
+            steps {
+                sh 'npx stylelint "static/main.css"'
+            }
         }                          
         // stage('Build Docker Image - test') {
         //     steps {
