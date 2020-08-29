@@ -19,12 +19,18 @@ pipeline {
                 sh 'tidy -q -e templates/*.html'
             }
         }
-        stage('Lint CSS file') {
+        stage('Lint CSS main file') {
             steps {
                 sh 'npm install --save-dev stylelint stylelint-config-standard'
                 sh 'npx stylelint "static/main.css"'
             }
-        }         
+        }
+        stage('Lint JS main file') {
+            steps {
+                sh 'npm install eslint --save-dev'
+                sh 'npx eslint "static/main.js"'
+            }
+        }                   
         stage('Lint Dockerfile') {
             agent {
                 docker {
