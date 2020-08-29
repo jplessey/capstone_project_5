@@ -31,6 +31,7 @@ pipeline {
         }
         stage('Lint CSS files') {
             steps {
+                sh 'npm install --save-dev stylelint stylelint-config-standard'
                 sh 'npx stylelint "static/main.css"'
             }
         }                          
