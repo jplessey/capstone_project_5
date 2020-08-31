@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             opacity: 0,
             scale: .5,
             ease: Power2.easeOut
-        }, 0.2)
+        }, 0.2);
 
         tl.staggerFrom('h1, h2', .5, {
             opacity: 0,
