@@ -8,6 +8,7 @@ COPY app.py /app/
 COPY templates /app/templates
 COPY static /app/static
 COPY requirements.txt /app/
+COPY .env /app/
 COPY Dockerfile /app/
 
 # Install packages from requirements.txt
