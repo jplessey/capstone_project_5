@@ -41,11 +41,16 @@ pipeline {
                 sh 'hadolint --ignore DL3013 Dockerfile'
             }
         }                         
-        // stage('Build Docker Image - test') {
+        // stage('Build Docker Image') {
         //     steps {
         //         sh 'docker build -t jpguitars_app .'
         //     }
         // }
+        stage('Docker Image Vulnerability Scan') {
+            steps {
+                sh 'trivy image jlessey/jpguitars:latest'
+            }
+        }
         // stage('Push Docker Image') {
         //     steps {
         //         withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
