@@ -8,8 +8,8 @@ COPY app.py /app/
 COPY templates /app/templates
 COPY static /app/static
 COPY requirements.txt /app/
-COPY .env /app/
 COPY Dockerfile /app/
+COPY .env /app/
 
 # Install packages from requirements.txt
 RUN pip install --upgrade pip &&\
