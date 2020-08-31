@@ -39,7 +39,7 @@ def home():
 
 @app.route('/', methods=['GET', 'POST'])
 def send_email():
-    f request.method == 'POST' and request.form['email']:
+    if request.method == 'POST' and request.form['email']:
         email = request.form['email']
         msg = Message(sender="ele.pe.arq@gmail.com")
         msg.recipients = [f"{email}"]
