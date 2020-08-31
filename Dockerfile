@@ -4,7 +4,7 @@ FROM python:3.8-slim-buster
 WORKDIR /app
 
 # Copy source code to working directory
-COP app.py /app/
+COPY app.py /app/
 COPY templates /app/templates
 COPY static /app/static
 COPY requirements.txt /app/
