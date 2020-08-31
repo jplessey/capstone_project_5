@@ -1,12 +1,14 @@
 from flask import Flask, flash, render_template, redirect, url_for, request
 from flask_mail import Mail, Message
+import base64
 from dotenv import load_dotenv
 import os
 
 
+load_dotenv()
 app = Flask(__name__)
 app.secret_key = "la_galleta"
-load_dotenv()
+email_pass = base64.b64decode(os.getenv("SER").encode())
 app.config.update(dict(
     DEBUG = True,
     MAIL_SERVER = 'smtp.gmail.com',
@@ -14,7 +16,7 @@ app.config.update(dict(
     MAIL_USE_TLS = True,
     MAIL_USE_SSL = False,
     MAIL_USERNAME = 'ele.pe.arq@gmail.com',
-    MAIL_PASSWORD = os.getenv("EMAIL_PASSWD"),
+    MAIL_PASSWORD = email_pass.decode()[::2],
 ))
 mail = Mail(app)
 
