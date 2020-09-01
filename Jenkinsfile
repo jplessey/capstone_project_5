@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo "Deploying JP Guitars WebApp..."'
             }
         }
-        stage('Deploy to AWS K8s Cluster') {
+        stage('Deploy to AWS EKS Cluster') {
                 steps {
                 withAWS(region:'us-west-2',credentials:'aws-static') {
                     sh 'aws eks --region us-west-2 update-kubeconfig --name jpguitars-webapp'
@@ -14,6 +14,12 @@ pipeline {
                     sh 'kubectl get pods'
                 }
             }    
-        }                                                      
+        }
+        stage('Add Service to Deployment') {
+            steps {
+                sh 'kubectl expose deployment/jpguitars-deployment --type="LoadBalancer" --port=80 --target-port=80'
+                sh 'kubectl describe service jpguitars-deployment'
+            }
+        }                                                              
     }
 }
