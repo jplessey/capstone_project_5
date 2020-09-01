@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: jpguitars-deployment
-        image: jlessey/jpguitars:latest
+        image: jlessey/jpguitars
         ports:
         - containerPort: 80
         resources:
