@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh 'URL=`python3 get_url.py`'
                 sh 'echo "$URL"'
-                // sh 'curl -I $URL'
+                sh 'curl -I $URL'
             }
         }                                                                   
     }
