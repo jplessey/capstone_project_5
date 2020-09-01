@@ -54,8 +54,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-                    sh 'docker tag jpguitars_app jlessey/jpguitars:latest'
-                    sh 'docker push jlessey/jpguitars:latest'
+                    sh 'docker tag jpguitars_app jlessey/jpguitars'
+                    sh 'docker push jlessey/jpguitars'
                 }
             }
         }    
