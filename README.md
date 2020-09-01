@@ -5,6 +5,8 @@
 
 This branch ("deployment") is specifically dedicated to the Continuous Deployment part of the project as an independent pipeline.
 
+Deployment type: rolling deployment
+
 The main stages of this pipeline consisted of:
 
 * Deploying the app to the AWS EKS Cluster
@@ -18,6 +20,8 @@ The main stages of this pipeline consisted of:
 #### AWS EKS EC2 Instances as worker nodes 
 <img src="screenshots/16_worker_nodes.png">
 
+
+Go back to the "master" branch if you want to see the CI pipeline.
 
 
 
