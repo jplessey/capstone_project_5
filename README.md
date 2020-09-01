@@ -11,12 +11,12 @@ The main stages of this pipeline consisted of:
 * Adding a Service to the nodes
 * Checking if the app is up and running
 
-#### The cd pipeline 
+#### The CD pipeline 
 <img src="screenshots/15_CD_pipeline.png">
 
 
 #### AWS EKS EC2 Instances as worker nodes 
-<img src="screenshots/16_worker_nodes">
+<img src="screenshots/16_worker_nodes.png">
 
 
 
