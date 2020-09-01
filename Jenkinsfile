@@ -19,7 +19,8 @@ pipeline {
                 steps {
                 withAWS(region:'us-west-2',credentials:'aws-static') {
                     sh 'kubectl expose deployment/jpguitars-deployment --type="LoadBalancer" --port=80 --target-port=80'
-                    sh 'kubectl describe service jpguitars-deployment'
+                    sh 'sleep 15'
+                    sh 'kubectl get service jpguitars-deployment'
                 }
             }
         }                                                           
