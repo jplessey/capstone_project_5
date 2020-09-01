@@ -2,18 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jpguitars-deployment
+  labels:
+    app: jpguitars-deployment
+  namespace: default  
 spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+       maxSurge: 25%
+       maxUnavailable: 25%    
   selector:
     matchLabels:
       run: jpguitars-deployment
-  replicas: 1
   template:
     metadata:
       labels:
         run: jpguitars-deployment
     spec:
       containers:
-      - name: jpguitars
+      - name: jpguitars-deployment
         image: jlessey/jpguitars:latest
         ports:
         - containerPort: 80
