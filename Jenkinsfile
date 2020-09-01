@@ -20,9 +20,16 @@ pipeline {
                 withAWS(region:'us-west-2',credentials:'aws-static') {
                     sh 'kubectl expose deployment/jpguitars-deployment --type="LoadBalancer" --port=80 --target-port=80'
                     sh 'sleep 15'
-                    sh 'kubectl get service jpguitars-deployment'
+                    sh 'kubectl get service jpguitars-deployment > service.txt'
                 }
             }
-        }                                                           
+        }
+        stage('Check if the app is running') {
+            steps {
+                sh 'URL=`python3 get_url.py`'
+                sh 'echo "$URL"'
+                sh 'curl -I ${URL}'
+            }
+        }                                                                   
     }
 }
