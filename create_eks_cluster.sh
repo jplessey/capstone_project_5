@@ -2,9 +2,9 @@ eksctl create cluster \
 --name jpguitars-webapp \
 --version 1.17 \
 --region us-west-2 \
---nodegroup-name jpapp-nodes \
+--nodegroup-name jpguitars-nodes \
 --node-type t2.medium \
---nodes 3 \
+--nodes 2 \
 --nodes-min 2 \
 --nodes-max 2 \
 --managed
