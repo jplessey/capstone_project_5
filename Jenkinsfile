@@ -26,7 +26,8 @@ pipeline {
         }
         stage('Check if the app is running') {
             steps {
-                sh 'sleep 25'
+                sh 'echo "Waiting for the app to be available..."'
+                sh 'sleep 90'
                 sh 'URL=`python3 get_url.py`'
                 sh 'curl -I `python3 get_url.py`'
             }
