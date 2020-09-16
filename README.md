@@ -13,11 +13,14 @@ The idea of this project was to apply all the skills and knoweledge developed th
 * Working with CloudFormation to deploy clusters
 * Building Kubernetes clusters
 
+I took a web app, performed linting tests on all the code, containerized the application by building a Docker image, pushed the image into a public repo and then deployed the application on a kubernetes cluster provided by the AWS EKS Service. 
+
+The kubernetes cluster consisted of 2 worker nodes created using <a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html">eksctl</a>.
+
 ### The WebApp
 
-I used a Flask app which consisted of a landing page for an imaginary guitar company called "J&P Guitars". It was inspired by this previous <a href="https://github.com/jplessey/musician_project">project</a>.
-The idea of the app is that any user can visit the page and subscribe to the company's newsletter. 
-After submitting the email, the user will receive a welcome email from the company.
+I used a Flask app which consisted of a landing page for an imaginary guitar manufacturing company called "J&P Guitars".
+For details about the app, you can go to <a href="https://github.com/jplessey/musician_project">this repo</a>.
 
 <img src="screenshots/jpguitars.png">
 
