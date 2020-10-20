@@ -26,7 +26,7 @@ body_html = """
 <html lang="en">
     <body>
         <h1 style="color:SlateGray;">J&P Guitars. You're now subscribed to our newsletter!</h1>
-        <img src="https://drive.google.com/uc?export=view&id=1D_BbH3Z4_D-CKt2SU05Jf_f7TwcKwFkM" alt="Electric Guitar">
+        <img src="">
     </body>    
 </html>
 """
