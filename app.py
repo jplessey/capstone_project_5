@@ -41,7 +41,7 @@ def home():
 def send_email():
     if request.method == 'POST' and request.form['email']:
         email = request.form['email']
-        msg = Message(sender="ele.pe.arq@gmail.com")
+        msg = Message(sender="")
         msg.recipients = [f"{email}"]
         msg.body = "J&P Guitars. Newsletter"
         msg.html = body_html
