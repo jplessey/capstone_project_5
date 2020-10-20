@@ -8,15 +8,15 @@ import os
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = "la_galleta"
-email_pass = base64.b64decode(os.getenv("SER").encode())
+# email_pass = base64.b64decode(os.getenv("SER").encode())
 app.config.update(dict(
     DEBUG = True,
     MAIL_SERVER = 'smtp.gmail.com',
     MAIL_PORT = 587,
     MAIL_USE_TLS = True,
     MAIL_USE_SSL = False,
-    MAIL_USERNAME = 'ele.pe.arq@gmail.com',
-    MAIL_PASSWORD = email_pass.decode()[::2],
+    MAIL_USERNAME = '',
+    MAIL_PASSWORD = '',
 ))
 mail = Mail(app)
 
